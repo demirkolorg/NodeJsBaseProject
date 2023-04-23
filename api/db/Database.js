@@ -13,7 +13,7 @@ class Database {
 
     async connect(options){
     try {
-        let db = await mongoose.connect(options.CONNECTION_STRING)
+        let db = await mongoose.connect(options.CONNECTION_STRING,{useNewUrlParser:true,useUnifiedTopology:true})
         this.monjgoConnection=db
         console.log("DB Connection");
     } catch (err) {
