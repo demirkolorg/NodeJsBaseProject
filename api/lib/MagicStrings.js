@@ -2,7 +2,7 @@ module.exports = {
     Categories: {
         add:{
             nameValidationErrorMsg: "Validasyon hatası",
-            nameValidationErrorDesc: "name alanı doldurulması zorunludur.",
+            nameValidationErrorDesc: "Name alanı doldurulması zorunludur.",
         },
         update:{
             idValidationErrorMsg: "Validasyon hatası",

@@ -4,7 +4,7 @@ const Categories = require('../db/models/Categories');
 const Response = require('../lib/Response')
 const CustomError = require('../lib/Error')
 const Enum = require('../config/Enum');
-const ms = require('../config/MagisStrings')
+const ms = require('../lib/MagicStrings')
 
 
 
