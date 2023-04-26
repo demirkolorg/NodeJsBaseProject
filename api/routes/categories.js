@@ -12,7 +12,11 @@ const ms = require('../lib/MagicStrings')
 router.get('/', async (req, res, next) => {
     try {
         let categories = await Categories.find({})
-        res.json(Response.successResponse(categories))
+        res.json(Response.successResponse(
+            categories,
+            ms.Categories.list.listelemeBasariliTitle,
+            ms.Categories.list.listelemeBasariliDesc
+        ))
     } catch (err) {
         let errorResponse = Response.errorResponse(err)
         res.status(errorResponse.code).json(errorResponse)
@@ -36,14 +40,16 @@ router.post('/add', async (req, res, next) => {
 
         await category.save()
 
-        res.json(Response.successResponse(category))
+        res.json(Response.successResponse(category,
+            ms.Categories.add.eklemeBasariliTitle,
+            ms.Categories.add.eklemeBasariliDesc
+        ))
 
     } catch (err) {
         let errorResponse = Response.errorResponse(err)
         res.status(errorResponse.code).json(errorResponse)
     }
 });
-
 
 
 router.post('/update', async (req, res, next) => {
@@ -62,7 +68,9 @@ router.post('/update', async (req, res, next) => {
         await Categories.updateOne({ _id: body._id }, updates)
         let category = await Categories.find({ _id: body._id })
 
-        res.json(Response.successResponse(category))
+        res.json(Response.successResponse(category,
+            ms.Categories.update.guncellemeBasariliTitle,
+            ms.Categories.update.guncellemeBasariliDesc))
 
     } catch (err) {
         let errorResponse = Response.errorResponse(err)
@@ -84,7 +92,9 @@ router.post('/delete', async (req, res, next) => {
 
         await Categories.deleteOne({ _id: body._id })
 
-        res.json(Response.successResponse(removedCategory))
+        res.json(Response.successResponse(removedCategory,
+            ms.Categories.delete.silmeBasariliTitle,
+            ms.Categories.delete.silmeBasariliDesc))
 
     } catch (err) {
         let errorResponse = Response.errorResponse(err)
