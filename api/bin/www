@@ -7,8 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('api:server');
 var http = require('http');
-const Dataabse = require('../db/Database.js')
-const { CONNECTION_STRING,PORT } = require('../config')
+const Dataabse = require('../db/Database')
+
+const { CONNECTION_STRING, PORT } = require('../config')
 /**
  * Get port from environment and store in Express.
  */
