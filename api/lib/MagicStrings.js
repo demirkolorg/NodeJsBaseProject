@@ -93,4 +93,28 @@ module.exports = {
             silmeBasariliDesc: "Kullanıcı silme işlemi başarılı bir şekilde yapıldı."
         },
     },
+    AuditLogs: {
+        list: {
+            listelemeBasariliTitle: "AuditLogs Listeleme Başarılı",
+            listelemeBasariliDesc: "AuditLogs listeleme işlemi başarılı bir şekilde yapıldı."
+        },
+        add: {
+            nameValidationErrorMsg: "Validasyon hatası",
+            nameValidationErrorDesc: "Name alanı doldurulması zorunludur.",
+            eklemeBasariliTitle: "Kategori Ekleme Başarılı",
+            eklemeBasariliDesc: "Kategori ekleme işlemi başarılı bir şekilde yapıldı."
+        },
+        update: {
+            idValidationErrorMsg: "Validasyon hatası",
+            idValidationErrorDesc: "id alanı doldurulması zorunludur.",
+            guncellemeBasariliTitle: "Kategori Güncelleme Başarılı",
+            guncellemeBasariliDesc: "Kategori güncelleme işlemi başarılı bir şekilde yapıldı."
+        },
+        delete: {
+            idValidationErrorMsg: "Validasyon hatası",
+            idValidationErrorDesc: "id alanı doldurulması zorunludur.",
+            silmeBasariliTitle: "Kategori Silme Başarılı",
+            silmeBasariliDesc: "Kategori silme işlemi başarılı bir şekilde yapıldı."
+        },
+    },
 }
