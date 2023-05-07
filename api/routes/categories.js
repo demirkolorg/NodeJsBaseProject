@@ -6,6 +6,7 @@ const CustomError = require("../lib/Error");
 const Enum = require("../config/Enum");
 const ms = require("../lib/MagicStrings");
 const AuditLogs = require("../lib/AuditLogs");
+const Logger = require("../lib/logs/LoggerClass");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -26,6 +27,13 @@ router.get("/", async (req, res, next) => {
       )
     );
   } catch (err) {
+    Logger.error({
+      email: "req.user?.email",
+      location: Enum.END_POINTS.CATEGORIES,
+      proc_type: Enum.PROCESSES_TYPES.LIST,
+      log: { ...categories },
+    });
+
     let errorResponse = Response.errorResponse(err);
     res.status(errorResponse.code).json(errorResponse);
   }
@@ -56,6 +64,13 @@ router.post("/add", async (req, res, next) => {
       log: { ...category },
     });
 
+    Logger.info(
+      "req.user?.email",
+      Enum.END_POINTS.CATEGORIES,
+      Enum.PROCESSES_TYPES.CREATE,
+      category
+    );
+
     res.json(
       Response.successResponse(
         category,
@@ -64,6 +79,13 @@ router.post("/add", async (req, res, next) => {
       )
     );
   } catch (err) {
+    Logger.error(
+      "req.user?.email",
+      Enum.END_POINTS.CATEGORIES,
+      Enum.PROCESSES_TYPES.CREATE,
+      err
+    );
+
     let errorResponse = Response.errorResponse(err);
     res.status(errorResponse.code).json(errorResponse);
   }
