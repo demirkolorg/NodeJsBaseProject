@@ -15,6 +15,7 @@ module.exports = {
     DEBUG: "DEBUG",
     VERBOSE: "VERBOSE",
     HTTP: "HTTP",
+    SILLY: "SILLY",
   },
   PROCESSES_TYPES: {
     LIST: "LIST",
